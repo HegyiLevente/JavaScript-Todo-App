@@ -83,12 +83,7 @@ function filterTodos(event) {
 }
 
 function saveTodoToLocal(todo) {
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
+  let todos = checkLocalStorageTodos();
 
   todos.push(todo);
   localStorage.setItem("todos", JSON.stringify(todos));
